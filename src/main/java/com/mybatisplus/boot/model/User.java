@@ -1,10 +1,8 @@
 package com.mybatisplus.boot.model;
 
-import java.io.Serializable;
+import com.app.mybatisplus.annotations.Column;
 
-import com.baomidou.mybatisplus.annotations.IdType;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
+import java.io.Serializable;
 
 /**
  *
@@ -13,12 +11,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
  */
 public class User implements Serializable {
 
-	@TableField(exist = false)
+	@Column(exist = false)
 	private static final long serialVersionUID = 1L;
-
-	/** 主键ID */
-	@TableId(value = "test_id",type = IdType.AUTO)
-	private Long testId;
 
 	/** 名称 */
 	private String name;
@@ -27,7 +21,7 @@ public class User implements Serializable {
 	private Integer age;
 
 	/** 测试下划线字段命名类型 */
-	@TableField(value = "test_type")
+	@Column(value = "test_type")
 	private Integer testType;
 
 	/**  */
@@ -35,15 +29,6 @@ public class User implements Serializable {
 
 	/**  */
 	private String phone;
-
-
-	public Long getTestId() {
-		return this.testId;
-	}
-
-	public void setTestId(Long testId) {
-		this.testId = testId;
-	}
 
 	public String getName() {
 		return this.name;

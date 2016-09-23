@@ -2,13 +2,13 @@ package com.mybatisplus.boot.service.impl;
 
 import java.util.List;
 
-import com.mybatisplus.boot.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.framework.service.impl.SuperServiceImpl;
+import com.mybatisplus.boot.mapper.UserMapper;
 import com.mybatisplus.boot.model.User;
 import com.mybatisplus.boot.service.UserService;
-import com.baomidou.framework.service.impl.SuperServiceImpl;
 
 /**
  *

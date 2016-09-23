@@ -1,7 +1,7 @@
 package com.mybatisplus.boot.config;
 
-import javax.sql.DataSource;
-
+import com.app.mybatisplus.plugins.PaginationInterceptor;
+import com.app.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
@@ -14,8 +14,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
-import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+import javax.sql.DataSource;
 
 @Configuration
 public class MybatisPlusConfig {

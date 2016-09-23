@@ -1,9 +1,9 @@
 package com.mybatisplus.boot.mapper;
 
-import java.util.List;
-
+import com.app.mybatisplus.mapper.AutoMapper;
 import com.mybatisplus.boot.model.User;
-import com.baomidou.mybatisplus.mapper.AutoMapper;
+
+import java.util.List;
 
 /**
  *
