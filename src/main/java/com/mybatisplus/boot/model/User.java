@@ -1,5 +1,6 @@
 package com.mybatisplus.boot.model;
 
+import com.app.framework.entity.AutoPrimaryKey;
 import com.app.mybatisplus.annotations.Column;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.io.Serializable;
  * 用户表
  *
  */
-public class User implements Serializable {
+public class User extends AutoPrimaryKey implements Serializable {
 
 	@Column(exist = false)
 	private static final long serialVersionUID = 1L;

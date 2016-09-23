@@ -1,6 +1,7 @@
 package com.mybatisplus.boot.service;
 
 import com.app.framework.service.ISuperService;
+import com.app.mybatisplus.plugins.Page;
 import com.mybatisplus.boot.model.User;
 
 import java.util.List;
@@ -13,4 +14,5 @@ import java.util.List;
 public interface UserService extends ISuperService<User> {
 	public List<User> selectAll();
 
+    List<User> selectTest();
 }

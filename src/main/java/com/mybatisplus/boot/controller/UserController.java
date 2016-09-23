@@ -1,13 +1,12 @@
 package com.mybatisplus.boot.controller;
 
-import java.util.List;
-
+import com.mybatisplus.boot.model.User;
+import com.mybatisplus.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mybatisplus.boot.model.User;
-import com.mybatisplus.boot.service.UserService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -24,8 +23,8 @@ public class UserController {
 	/**
 	 * 分页
 	 */
-	/*@RequestMapping("/test2")
-	public Page<User> selectPageUser() {
-		return userService.selectPage(new Page<User>(), null);
-	}*/
+	@RequestMapping("/test2")
+	public List<User> selectPageUser() {
+		return userService.selectTest();
+	}
 }
