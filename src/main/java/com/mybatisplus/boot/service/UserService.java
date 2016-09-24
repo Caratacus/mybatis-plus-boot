@@ -1,10 +1,10 @@
 package com.mybatisplus.boot.service;
 
-import com.app.framework.service.ISuperService;
-import com.app.mybatisplus.plugins.Page;
-import com.mybatisplus.boot.model.User;
 
 import java.util.List;
+
+import com.baomidou.framework.service.ISuperService;
+import com.mybatisplus.boot.model.User;
 
 /**
  *

@@ -14,9 +14,10 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import com.app.mybatisplus.plugins.PaginationInterceptor;
-import com.app.mybatisplus.plugins.PerformanceInterceptor;
-import com.app.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
+import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+
 
 @Configuration
 public class MybatisPlusConfig {

@@ -1,8 +1,9 @@
 package com.mybatisplus.boot.utils;
 
-import com.app.mybatisplus.annotations.IdType;
-import com.app.mybatisplus.generator.AutoGenerator;
-import com.app.mybatisplus.generator.ConfigGenerator;
+
+import com.baomidou.mybatisplus.annotations.IdType;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.ConfigGenerator;
 
 public class MybatisPlusGenerator {
 	public static void main(String[] args) {

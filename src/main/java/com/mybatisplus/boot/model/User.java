@@ -1,20 +1,23 @@
 package com.mybatisplus.boot.model;
 
-import com.app.framework.entity.AutoPrimaryKey;
-import com.app.mybatisplus.annotations.Column;
-
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 
 /**
  *
  * 用户表
  *
  */
-public class User extends AutoPrimaryKey implements Serializable {
+public class User implements Serializable {
 
-	@Column(exist = false)
+	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;
 
+	/** 名称 */
+	@TableId
+	private Long id;
 	/** 名称 */
 	private String name;
 
@@ -22,7 +25,7 @@ public class User extends AutoPrimaryKey implements Serializable {
 	private Integer age;
 
 	/** 测试下划线字段命名类型 */
-	@Column(value = "test_type")
+	@TableField(value = "test_type")
 	private Integer testType;
 
 	/**  */
