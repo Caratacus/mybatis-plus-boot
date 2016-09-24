@@ -27,4 +27,25 @@ public class UserController {
 	public List<User> selectPageUser() {
 		return userService.selectTest();
 	}
+	/**
+	 * 分页
+	 */
+	@RequestMapping("/test3")
+	public List<User> selectPageUser3() {
+		return userService.selectTest1();
+	}
+	/**
+	 * 分页
+	 */
+	@RequestMapping("/test4")
+	public List<User> selectPageUser4() {
+		return userService.selectTest2();
+	}
+	/**
+	 * 分页
+	 */
+	@RequestMapping("/test5")
+	public List<User> selectPageUser5() {
+		return userService.selectList(null);
+	}
 }

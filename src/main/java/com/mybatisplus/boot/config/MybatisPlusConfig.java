@@ -1,7 +1,7 @@
 package com.mybatisplus.boot.config;
 
-import com.app.mybatisplus.plugins.PaginationInterceptor;
-import com.app.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+import javax.sql.DataSource;
+
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
@@ -14,7 +14,9 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
-import javax.sql.DataSource;
+import com.app.mybatisplus.plugins.PaginationInterceptor;
+import com.app.mybatisplus.plugins.PerformanceInterceptor;
+import com.app.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 
 @Configuration
 public class MybatisPlusConfig {
@@ -40,6 +42,15 @@ public class MybatisPlusConfig {
 	public PaginationInterceptor paginationInterceptor() {
 		PaginationInterceptor page = new PaginationInterceptor();
 		page.setDialectType("mysql");
+		return page;
+	}
+	/**
+	 *	 mybatis-plus分页插件
+	 */
+	@Bean
+	public PerformanceInterceptor performanceInterceptor() {
+		PerformanceInterceptor page = new PerformanceInterceptor();
+		page.setMaxTime(999999);
 		return page;
 	}
 	/**

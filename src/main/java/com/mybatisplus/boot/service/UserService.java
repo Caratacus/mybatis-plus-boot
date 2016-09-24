@@ -15,4 +15,6 @@ public interface UserService extends ISuperService<User> {
 	public List<User> selectAll();
 
     List<User> selectTest();
+    List<User> selectTest1();
+    List<User> selectTest2();
 }
