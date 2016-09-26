@@ -6,6 +6,10 @@
     <sql id="Base_Column_List">
         test_id AS testId, name, age, test_type AS testType, role, phone
     </sql>
+    <resultMap id="userMap" type="User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
     <select id="selectAll" resultType="User">
         select * from user
     </select>

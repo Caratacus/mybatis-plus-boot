@@ -1,15 +1,17 @@
 package com.mybatisplus.boot.model;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
+import java.io.Serializable;
 
 /**
  *
  * 用户表
  *
  */
+@TableName(resultMap = "userMap")
 public class User implements Serializable {
 
 	@TableField(exist = false)
@@ -34,8 +36,16 @@ public class User implements Serializable {
 	/**  */
 	private String phone;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -43,7 +53,7 @@ public class User implements Serializable {
 	}
 
 	public Integer getAge() {
-		return this.age;
+		return age;
 	}
 
 	public void setAge(Integer age) {
@@ -51,7 +61,7 @@ public class User implements Serializable {
 	}
 
 	public Integer getTestType() {
-		return this.testType;
+		return testType;
 	}
 
 	public void setTestType(Integer testType) {
@@ -59,7 +69,7 @@ public class User implements Serializable {
 	}
 
 	public Long getRole() {
-		return this.role;
+		return role;
 	}
 
 	public void setRole(Long role) {
@@ -67,11 +77,10 @@ public class User implements Serializable {
 	}
 
 	public String getPhone() {
-		return this.phone;
+		return phone;
 	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
 }
