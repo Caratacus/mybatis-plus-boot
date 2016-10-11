@@ -1,5 +1,6 @@
 package com.mybatisplus.boot.controller;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mybatisplus.boot.model.Test;
 import com.mybatisplus.boot.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,12 @@ public class TestController {
 	@RequestMapping("/test5")
 	public List<Test> selectPageUser5() {
 		return testService.selectList(null);
+	}
+	/**
+	 * 分页
+	 */
+	@RequestMapping("/test6")
+	public Test selectPageUser6() {
+		return testService.selectOne(new EntityWrapper<Test>());
 	}
 }

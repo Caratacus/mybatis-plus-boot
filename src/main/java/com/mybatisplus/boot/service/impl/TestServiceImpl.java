@@ -27,7 +27,7 @@ public class TestServiceImpl extends SuperServiceImpl<TestMapper, Test> implemen
 
     @Override
     public List<Test> selectTest() {
-        return testMapper.selectTest();
+        return testMapper.selectList(null);
     }
     @Override
     public List<Test> selectTest1() {
