@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mybatisplus.boot.model.Test;
 import com.mybatisplus.boot.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,8 +19,17 @@ public class TestController {
 	private TestService testService;
 
 	@RequestMapping("/test1")
-	public List<Test> test1() {
-		return testService.selectAll();
+	@Transactional
+	public void test1() {
+		List<Test> tests = new ArrayList<Test>();
+		for (int i = 1; i <= 50; i++) {
+			Test test = new Test();
+			test.setId(Long.valueOf(i));
+			test.setType(String.valueOf(i));
+			tests.add(test);
+		}
+		testService.insertBatchSelective(tests, 5, true);
+		System.out.println("1111");
 	}
 
 	/**
@@ -26,7 +37,7 @@ public class TestController {
 	 */
 	@RequestMapping("/test2")
 	public List<Test> selectPageUser() {
-		return testService.selectTest();
+		return testService.selectList(null);
 	}
 
 	/**
@@ -52,6 +63,7 @@ public class TestController {
 	public List<Test> selectPageUser5() {
 		return testService.selectList(null);
 	}
+
 	/**
 	 * 分页
 	 */
