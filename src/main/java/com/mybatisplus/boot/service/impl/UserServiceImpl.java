@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.baomidou.framework.service.impl.SuperServiceImpl;
+import com.baomidou.framework.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mybatisplus.boot.mapper.UserMapper;
 import com.mybatisplus.boot.model.User;
@@ -17,7 +17,7 @@ import com.mybatisplus.boot.service.UserService;
  *
  */
 @Service
-public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Autowired
     private UserMapper userMapper;
 

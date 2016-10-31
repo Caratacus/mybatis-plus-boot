@@ -1,14 +1,15 @@
 package com.mybatisplus.boot.service.impl;
 
-import com.baomidou.framework.service.impl.SuperServiceImpl;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.baomidou.framework.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mybatisplus.boot.mapper.TestMapper;
 import com.mybatisplus.boot.model.Test;
 import com.mybatisplus.boot.service.TestService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.util.List;
  *
  */
 @Service
-public class TestServiceImpl extends SuperServiceImpl<TestMapper, Test> implements TestService {
+public class TestServiceImpl extends ServiceImpl<TestMapper, Test> implements TestService {
     @Autowired
     private TestMapper testMapper;
 

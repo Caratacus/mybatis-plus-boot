@@ -3,7 +3,7 @@ package com.mybatisplus.boot.service;
 
 import java.util.List;
 
-import com.baomidou.framework.service.ISuperService;
+import com.baomidou.framework.service.IService;
 import com.mybatisplus.boot.model.User;
 
 /**
@@ -11,7 +11,7 @@ import com.mybatisplus.boot.model.User;
  * User 表数据服务层接口
  *
  */
-public interface UserService extends ISuperService<User> {
+public interface UserService extends IService<User> {
 	public List<User> selectAll();
 
     List<User> selectTest();

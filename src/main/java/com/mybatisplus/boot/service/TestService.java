@@ -1,7 +1,7 @@
 package com.mybatisplus.boot.service;
 
 
-import com.baomidou.framework.service.ISuperService;
+import com.baomidou.framework.service.IService;
 import com.mybatisplus.boot.model.Test;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * User 表数据服务层接口
  *
  */
-public interface TestService extends ISuperService<Test> {
+    public interface TestService extends IService<Test> {
 	public List<Test> selectAll();
 
     List<Test> selectTest();
