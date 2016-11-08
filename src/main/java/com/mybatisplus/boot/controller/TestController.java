@@ -19,15 +19,16 @@ public class TestController {
 	private TestService testService;
 
 	@RequestMapping("/test1")
-	@Transactional
 	public void test1() throws SQLException {
 		Test test = new Test();
+		test.setId(11L);
 		test.setType("1111");
 		testService.insert(test);
 		Test test1 = new Test();
         test1.setType("2222");
 		test1.insert();
 		List<Test> tests = testService.selectList(null);
+		int uu =  11/0;
 		System.out.println(tests);
 	}
 
