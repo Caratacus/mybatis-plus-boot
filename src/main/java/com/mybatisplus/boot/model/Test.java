@@ -1,8 +1,9 @@
 package com.mybatisplus.boot.model;
 
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.IdType;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
 
 import java.io.Serializable;
 
@@ -11,13 +12,13 @@ import java.io.Serializable;
  * 用户表
  *
  */
-public class Test implements Serializable {
+public class Test extends Model<User> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;
 
 	/** 名称 */
-	@TableId
+	@TableId(type = IdType.AUTO)
 	private Long id;
 	/** 名称 */
 	private String type;
@@ -36,5 +37,10 @@ public class Test implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	@Override
+	protected Serializable getPrimaryKey() {
+		return id;
 	}
 }
