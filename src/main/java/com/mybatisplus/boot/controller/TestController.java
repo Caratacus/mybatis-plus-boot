@@ -1,6 +1,7 @@
 package com.mybatisplus.boot.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mybatisplus.boot.model.Test;
 import com.mybatisplus.boot.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,7 @@ public class TestController {
 
 	@RequestMapping("/test1")
 	public void test1() throws SQLException {
-		Test test = new Test();
-		test.setId(11L);
-		test.setType("1111");
-		testService.insert(test);
-		Test test1 = new Test();
-        test1.setType("2222");
-		test1.insert();
-		List<Test> tests = testService.selectList(null);
-		int uu =  11/0;
+		Page<Test> tests = testService.selectTest1();
 		System.out.println(tests);
 	}
 
@@ -45,7 +38,7 @@ public class TestController {
 	 */
 	@RequestMapping("/test3")
 	public List<Test> selectPageUser3() {
-		return testService.selectTest1();
+		return testService.selectTest2();
 	}
 
 	/**

@@ -1,11 +1,12 @@
 package com.mybatisplus.boot.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.mybatisplus.boot.model.Test;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.mybatisplus.boot.model.Test;
 
 
 /**
@@ -17,8 +18,7 @@ public interface TestMapper extends BaseMapper<Test> {
 	@Select("select * from test limit 0")
 	List<Test> selectTest();
 
-	@Select("select * from test limit 1")
-	List<Test> selectTest1(EntityWrapper e);
+	List<Test> selectTest1(Page page);
 
 	@Select("select * from test limit 2")
 	List<Test> selectTest2(Test user);

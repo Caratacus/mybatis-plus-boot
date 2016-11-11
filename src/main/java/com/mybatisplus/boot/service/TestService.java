@@ -1,10 +1,11 @@
 package com.mybatisplus.boot.service;
 
 
-import com.baomidou.framework.service.IService;
-import com.mybatisplus.boot.model.Test;
-
 import java.util.List;
+
+import com.baomidou.framework.service.IService;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.mybatisplus.boot.model.Test;
 
 /**
  *
@@ -15,6 +16,6 @@ import java.util.List;
 	public List<Test> selectAll();
 
     List<Test> selectTest();
-    List<Test> selectTest1();
+    Page<Test> selectTest1();
     List<Test> selectTest2();
 }

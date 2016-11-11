@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.framework.service.impl.ServiceImpl;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.mybatisplus.boot.mapper.TestMapper;
 import com.mybatisplus.boot.model.Test;
 import com.mybatisplus.boot.service.TestService;
@@ -31,8 +31,11 @@ public class TestServiceImpl extends ServiceImpl<TestMapper, Test> implements Te
         return testMapper.selectList(null);
     }
     @Override
-    public List<Test> selectTest1() {
-        return testMapper.selectTest1(new EntityWrapper<Test>());
+    public Page<Test> selectTest1() {
+        Page<Test> testPage = new Page<Test>(1, 10);
+        List<Test> testPage1 = testMapper.selectTest1(testPage);
+        testPage.setRecords(testPage1);
+        return testPage;
     }
     @Override
     public List<Test> selectTest2() {
