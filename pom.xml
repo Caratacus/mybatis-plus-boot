@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.baomidou</groupId>
 	<artifactId>mybatisplus-spring-boot</artifactId>
@@ -8,8 +8,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.1.RELEASE</version>
+		<version>1.4.1.RELEASE</version>
 	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- log -->
+		<logback-classic.version>1.1.7</logback-classic.version>
+		<logback-ext-spring.version>0.1.4</logback-ext-spring.version>
+		<jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -62,6 +70,37 @@
 			<artifactId>jsqlparser</artifactId>
 			<version>0.9.6</version>
 		</dependency>
+		<!-- velocity begin -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
+			<version>1.4.1.RELEASE</version>
+		</dependency>
+		<!-- velocity end -->
+
+		<!-- log begin -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>${logback-ext-spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<!-- log end -->
+
+		<!-- kisso begin -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>kisso</artifactId>
+			<version>3.6.11</version>
+		</dependency>
+		<!-- kisso end -->
 	</dependencies>
 
 	<build>
