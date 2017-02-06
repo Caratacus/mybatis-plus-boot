@@ -1,26 +1,23 @@
-package com.mybatisplus.boot.model;
+package com.baomidou.springboot.entity;
+
+import java.io.Serializable;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-
-import java.io.Serializable;
 
 /**
  *
  * 用户表
  *
  */
-@TableName(resultMap = "userMap")
+@SuppressWarnings("serial")
 public class User extends Model<User> {
 
-	@TableField(exist = false)
-	private static final long serialVersionUID = 1L;
-
-	/** 名称 */
-	@TableId
+	/** 主键ID */
+	@TableId(value = "test_id")
 	private Long id;
+
 	/** 名称 */
 	private String name;
 
@@ -31,14 +28,27 @@ public class User extends Model<User> {
 	@TableField(value = "test_type")
 	private Integer testType;
 
-	/**  */
 	private Long role;
-
-	/**  */
 	private String phone;
 
+	public User() {
+	}
+
+	public User(Long id, String name, Integer age, Integer testType) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.testType = testType;
+	}
+
+	public User(String name, Integer age, Integer testType) {
+		this.name = name;
+		this.age = age;
+		this.testType = testType;
+	}
+
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -46,7 +56,7 @@ public class User extends Model<User> {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -54,7 +64,7 @@ public class User extends Model<User> {
 	}
 
 	public Integer getAge() {
-		return age;
+		return this.age;
 	}
 
 	public void setAge(Integer age) {
@@ -62,7 +72,7 @@ public class User extends Model<User> {
 	}
 
 	public Integer getTestType() {
-		return testType;
+		return this.testType;
 	}
 
 	public void setTestType(Integer testType) {
@@ -70,7 +80,7 @@ public class User extends Model<User> {
 	}
 
 	public Long getRole() {
-		return role;
+		return this.role;
 	}
 
 	public void setRole(Long role) {
@@ -78,7 +88,7 @@ public class User extends Model<User> {
 	}
 
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 
 	public void setPhone(String phone) {
@@ -86,7 +96,15 @@ public class User extends Model<User> {
 	}
 
 	@Override
-	protected Serializable getPrimaryKey() {
+	public String toString() {
+		return "User{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + ", testType=" + testType + ", role="
+				+ role + ", phone=" + phone + '}';
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		// TODO Auto-generated method stub
 		return id;
 	}
+
 }

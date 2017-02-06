@@ -1,7 +1,8 @@
-package com.mybatisplus.boot.config;
+package com.baomidou.springboot.config;
 
 import javax.sql.DataSource;
 
+import com.baomidou.mybatisplus.enums.FieldStrategy;
 import org.apache.ibatis.mapping.DatabaseIdProvider;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.boot.autoconfigure.MybatisProperties;
@@ -14,13 +15,19 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import com.baomidou.mybatisplus.MybatisConfiguration;
+import com.baomidou.mybatisplus.MybatisXMLLanguageDriver;
+import com.baomidou.mybatisplus.entity.GlobalConfiguration;
+import com.baomidou.mybatisplus.enums.DBType;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.enums.Optimize;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 
-
 @Configuration
 public class MybatisPlusConfig {
+
 	@Autowired
 	private DataSource dataSource;
 
@@ -42,16 +49,18 @@ public class MybatisPlusConfig {
 	@Bean
 	public PaginationInterceptor paginationInterceptor() {
 		PaginationInterceptor page = new PaginationInterceptor();
-		page.setDialectType("mysql");
+		page.setDialectType(DBType.MYSQL.getDb());
+		page.setOptimizeType(Optimize.JSQLPARSER.getOptimize());
 		return page;
 	}
 	/**
-	 *	 mybatis-plus分页插件
+	 *	 mybatis-plus SQL执行效率插件
 	 */
 	@Bean
 	public PerformanceInterceptor performanceInterceptor() {
 		PerformanceInterceptor page = new PerformanceInterceptor();
-		page.setMaxTime(999999);
+		page.setMaxTime(0);
+		page.setFormat(true);
 		return page;
 	}
 	/**
@@ -71,6 +80,16 @@ public class MybatisPlusConfig {
 		if (!ObjectUtils.isEmpty(this.interceptors)) {
 			mybatisPlus.setPlugins(this.interceptors);
 		}
+		// MP 全局配置，更多内容进入类看注释
+		GlobalConfiguration globalConfig = new GlobalConfiguration();
+		globalConfig.setDbType(DBType.MYSQL.getDb());
+		// ID 策略 AUTO->`0`("数据库ID自增") INPUT->`1`(用户输入ID") ID_WORKER->`2`("全局唯一ID") UUID->`3`("全局唯一ID")
+		globalConfig.setIdType(IdType.ID_WORKER.getKey());
+		globalConfig.setFieldStrategy(FieldStrategy.NOT_EMPTY.getKey());
+		mybatisPlus.setGlobalConfig(globalConfig);
+		MybatisConfiguration mc = new MybatisConfiguration();
+		mc.setDefaultScriptingLanguage(MybatisXMLLanguageDriver.class);
+		mybatisPlus.setConfiguration(mc);
 		if (this.databaseIdProvider != null) {
 			mybatisPlus.setDatabaseIdProvider(this.databaseIdProvider);
 		}
